@@ -23,4 +23,17 @@ body {
       border-bottom-color: #16a249;
     }
   }
+
+  input,
+  select {
+    border: 2px solid #00000022;
+    padding: 0.25rem 1rem;
+    font: 1rem NotoSans;
+    border-radius: 1rem;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
