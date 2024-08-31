@@ -4,6 +4,10 @@
   gap: 1rem;
   border: none;
 
+  &.dark {
+    color: #fff;
+  }
+
   svg {
     height: 2.5rem;
     width: 2.5rem;
