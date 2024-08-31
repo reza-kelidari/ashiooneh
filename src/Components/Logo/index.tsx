@@ -6,7 +6,7 @@ import Styles from "./styles.module.scss";
  *
  * @returns {JSX.Element}
  */
-export default function Logo({ dark = false }: { dark: boolean }): JSX.Element {
+export default function Logo({ dark = false }: { dark?: boolean }): JSX.Element {
   return (
     <a href="/" className={[Styles.logo, dark ? Styles.dark : ""].join(" ")}>
       <House fill="#16a249" />
