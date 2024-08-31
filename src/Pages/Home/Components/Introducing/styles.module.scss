@@ -1,0 +1,45 @@
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 55rem;
+  padding: 0 2rem;
+
+  .movie {
+    position: relative;
+
+    .banner {
+      border-radius: 1rem;
+    }
+
+    .play {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: fit-content;
+      width: fit-content;
+      margin: auto;
+      border: none;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+
+    .desc {
+      text-align: justify;
+      justify-content: start;
+      opacity: 0.5;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .intro {
+    flex-direction: column;
+  }
+}

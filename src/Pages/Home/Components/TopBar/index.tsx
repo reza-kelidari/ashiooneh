@@ -2,7 +2,16 @@ import { useState } from "react";
 import Styles from "./styles.module.scss";
 import Button from "../../../../Components/Button";
 
-export default function TopBar() {
+/**
+ * This components renders a banner, a header, and a form
+ * for `Home page`
+ *
+ * @returns {JSX.Element}
+ */
+export default function TopBar(): JSX.Element {
+  /**
+   * This state declares which form should shown, buy or sell
+   */
   const [active, setActive] = useState(0);
 
   return (
@@ -35,40 +44,97 @@ export default function TopBar() {
             فروش
           </span>
         </div>
+        {active === 0 ? (
+          <div className={Styles.container}>
+            <div className={Styles.properties}>
+              <div className={Styles.property}>
+                <label htmlFor="hood">محله</label>
+                <input type="text" id="hood" placeholder="سعادت آباد" />
+              </div>
 
-        <div className={Styles.container}>
-          <div className={Styles.properties}>
-            <div className={Styles.property}>
-              <label htmlFor="hood">محله</label>
-              <input type="text" id="hood" placeholder="سعادت آباد" />
+              <div className={Styles.property}>
+                <label htmlFor="type">نوع</label>
+                <select id="type" className={Styles.type}>
+                  <option disabled>یک مورد انتخاب کن</option>
+                  <option value="apartment">آپارتمان</option>
+                  <option value="house">ویلایی</option>
+                  <option value="villa">باغ ویلا</option>
+                  <option value="office">اداری</option>
+                </select>
+              </div>
+
+              <div className={Styles.property}>
+                <label htmlFor="min">حداقل قیمت</label>
+                <input
+                  type="number"
+                  id="min"
+                  min={500000000}
+                  placeholder="500,000,000"
+                  pattern="\d*"
+                />
+              </div>
+
+              <div className={Styles.property}>
+                <label htmlFor="max">حداکثر قیمت</label>
+                <input
+                  type="number"
+                  id="max"
+                  min={500000000}
+                  placeholder="1,000,000,000"
+                  pattern="\d*"
+                />
+              </div>
             </div>
 
-            <div className={Styles.property}>
-              <label htmlFor="type">نوع</label>
-              <select id="type" className={Styles.type}>
-                <option disabled>یک مورد انتخاب کن</option>
-                <option value="apartment">آپارتمان</option>
-                <option value="house">ویلایی</option>
-                <option value="villa">باغ ویلا</option>
-                <option value="office">اداری</option>
-              </select>
-            </div>
-
-            <div className={Styles.property}>
-              <label htmlFor="min">حداقل قیمت</label>
-              <input type="text" id="min" placeholder="500,000,000" />
-            </div>
-
-            <div className={Styles.property}>
-              <label htmlFor="max">حداکثر قیمت</label>
-              <input type="text" id="max" placeholder="1,000,000,000" />
-            </div>
+            <Button type="submit">جستجو</Button>
           </div>
+        ) : (
+          <div className={Styles.container}>
+            <div className={Styles.properties}>
+              <div className={Styles.property}>
+                <label htmlFor="hood">محله</label>
+                <input type="text" id="hood" placeholder="سعادت آباد" />
+              </div>
 
-          <Button type="submit">
-            جستجو
-          </Button>
-        </div>
+              <div className={Styles.property}>
+                <label htmlFor="type">نوع</label>
+                <select id="type" className={Styles.type}>
+                  <option disabled>یک مورد انتخاب کن</option>
+                  <option value="apartment">آپارتمان</option>
+                  <option value="house">ویلایی</option>
+                  <option value="villa">باغ ویلا</option>
+                  <option value="office">اداری</option>
+                </select>
+              </div>
+
+              <div className={Styles.property}>
+                <label htmlFor="min">متراژ</label>
+                <input
+                  type="number"
+                  id="size"
+                  placeholder="70"
+                  pattern="\d*"
+                  min={30}
+                  max={200}
+                />
+              </div>
+
+              <div className={Styles.property}>
+                <label htmlFor="max">تعداد اتاق خواب</label>
+                <input
+                  type="number"
+                  id="rooms"
+                  placeholder="4"
+                  pattern="\d*"
+                  min={0}
+                  max={7}
+                />
+              </div>
+            </div>
+
+            <Button type="submit">پر کردن فرم</Button>
+          </div>
+        )}
       </form>
     </div>
   );

@@ -1,10 +1,22 @@
+import { ReactNode } from "react";
 import Styles from "./styles.module.scss";
 
-export default function Button(props: any) {
-  const { children } = props;
-
+/**
+ * This comopent renders a customized button
+ * 
+ * @param children is content that will be shown in
+ * the button
+ * @returns {JSX.Element}
+ */
+export default function Button({
+  children,
+  type,
+}: {
+  children: ReactNode;
+  type?: "button" | "submit" | "reset";
+}): JSX.Element {
   return (
-    <button {...props} className={Styles.button}>
+    <button type={type} className={Styles.button}>
       {children}
     </button>
   );

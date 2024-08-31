@@ -7,16 +7,58 @@
   position: fixed;
   width: 100%;
   gap: 2rem;
-  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
 
   .links {
     display: flex;
     align-items: center;
     gap: 1rem;
     list-style: none;
+    width: 100%;
   }
 
   .space {
     margin: 0 auto;
+  }
+
+  .menu {
+    display: none;
+    border: none;
+    background: none;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .navbar {
+    position: fixed;
+    padding: 1rem;
+
+    .menu {
+      display: flex;
+
+      &.shown ~ .links {
+        display: flex;
+        flex-direction: column;
+        top: 5rem;
+        height: fit-content;
+        position: fixed;
+        background: #fff;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        padding: 1rem 5rem;
+        border-radius: 1rem;
+        width: fit-content;
+        z-index: 1;
+      }
+    }
+
+    .links {
+      display: none;
+    }
   }
 }
