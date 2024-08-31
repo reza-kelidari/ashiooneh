@@ -1,4 +1,5 @@
 import Introducing from "./Components/Introducing";
+import Timeline from "./Components/Timeline";
 import TopBar from "./Components/TopBar";
 import Styles from "./styles.module.scss";
 
@@ -12,6 +13,7 @@ export default function Home(): JSX.Element {
     <div className={Styles.home}>
       <TopBar />
       <Introducing />
+      <Timeline />
     </div>
   );
 }
